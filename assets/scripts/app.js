@@ -1,18 +1,19 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
 
-// create function
-function add(num1, num2) {
-  const result = num1 + num2;
-  alert("The result is " + result);
+function getUserInput() {
+  return parseInt(userInput.value);
 }
 
-// call function
-add(4, 5);
-add(2, 4);
+// create add function
+function add() {
+  // parseInt() or a + can be used to convert string to number
+  const enteredNumber = getUserInput;
+  const calcDescription = `${currentResult} + ${userInput.value}`;
+  currentResult = currentResult + enteredNumber;
+  outputResult(currentResult, calcDescription);
+  // return ends the function - anyting below, that is within the function, wont be executed
+}
 
-currentResult = ((currentResult + 10) * 3) / 2 - 1;
-
-let calculationDescription = `(${defaultResult} + 10) * 3 / 2 - 1`;
-
-outputResult(currentResult, calculationDescription);
+// event listener to add button - when add button is clicked have JS looks at the add function and executes it
+addBtn.addEventListener("click", add);
