@@ -1,13 +1,15 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
 
+// gets input from input field
 function getUserNumberInput() {
   return parseInt(userInput.value);
 }
 
+// generates and writes calculation log
 function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
   const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
-  outputResult(currentResult, calcDescription);
+  outputResult(currentResult, calcDescription); //from vendor.js file
 }
 
 // create add function
@@ -17,7 +19,6 @@ function add() {
   const initialResult = currentResult;
   currentResult = currentResult + enteredNumber;
   createAndWriteOutput("+", initialResult, enteredNumber);
-
   // return ends the function - anyting below, that is within the function, wont be executed
 }
 
