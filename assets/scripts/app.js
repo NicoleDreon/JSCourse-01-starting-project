@@ -15,5 +15,12 @@ function add() {
   // return ends the function - anyting below, that is within the function, wont be executed
 }
 
+function subtract() {
+  const enteredNumber = getUserInput;
+  const calcDescription = `${currentResult} - ${userInput.value}`;
+  currentResult = currentResult - enteredNumber;
+  outputResult(currentResult, calcDescription);
+}
+
 // event listener to add button - when add button is clicked have JS looks at the add function and executes it
 addBtn.addEventListener("click", add);
