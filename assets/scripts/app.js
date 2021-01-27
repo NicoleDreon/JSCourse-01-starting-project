@@ -28,6 +28,22 @@ function subtract() {
   createAndWriteOutput("-", initialResult, enteredNumber);
 }
 
+function multiply() {
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  currentResult = currentResult * enteredNumber;
+  createAndWriteOutput("*", initialResult, enteredNumber);
+}
+
+function divide() {
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  currentResult = currentResult / enteredNumber;
+  createAndWriteOutput("/", initialResult, enteredNumber);
+}
+
 // event listener to add button - when add button is clicked have JS looks at the add function and executes it
 addBtn.addEventListener("click", add);
 subtractBtn.addEventListener("click", subtract);
+multiplyBtn.addEventListener("click", multiply);
+divideBtn.addEventListener("click", divide);
