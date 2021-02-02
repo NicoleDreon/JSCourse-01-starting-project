@@ -13,6 +13,22 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
   outputResult(currentResult, calcDescription); //from vendor.js file
 }
 
+function writeToLog(
+  operationIdentifier,
+  prevResult,
+  operationNumber,
+  newResult
+) {
+  const logEntry = {
+    operation: operationIdentifier,
+    prevResult: prevResult,
+    number: operationNumber,
+    resutl: newResult,
+  };
+  logEntries.push(logEntry);
+  console.log(logEntries);
+}
+
 // create add function
 function add() {
   // parseInt() or a + can be used to convert string to number
@@ -20,14 +36,7 @@ function add() {
   const initialResult = currentResult;
   currentResult += enteredNumber;
   createAndWriteOutput("+", initialResult, enteredNumber);
-  const logEntry = {
-    operation: "ADD",
-    prevResult: initialResult,
-    number: enteredNumber,
-    resutl: currentResult,
-  };
-  logEntries.push(logEntry);
-  console.log(logEntries);
+  writeToLog("ADD", initialResult, enteredNumber, currentResult);
   // return ends the function - anyting below, that is within the function, wont be executed
 }
 
@@ -36,6 +45,7 @@ function subtract() {
   const initialResult = currentResult;
   currentResult -= enteredNumber;
   createAndWriteOutput("-", initialResult, enteredNumber);
+  writeToLog("SUBTRACT", initialResult, enteredNumber, currentResult);
 }
 
 function multiply() {
@@ -43,6 +53,7 @@ function multiply() {
   const initialResult = currentResult;
   currentResult *= enteredNumber;
   createAndWriteOutput("*", initialResult, enteredNumber);
+  writeToLog("MULTIPLY", initialResult, enteredNumber, currentResult);
 }
 
 function divide() {
@@ -50,6 +61,7 @@ function divide() {
   const initialResult = currentResult;
   currentResult /= enteredNumber;
   createAndWriteOutput("/", initialResult, enteredNumber);
+  writeToLog("DIVIDE", initialResult, enteredNumber, currentResult);
 }
 
 // event listener to add button - when add button is clicked have JS looks at the add function and executes it
